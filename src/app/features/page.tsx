@@ -1,7 +1,7 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Mic, QrCode, Gift, FileText, Store, Sparkles, Zap, ShieldCheck, Printer, BarChart, Settings, Smartphone, BookOpen, Bot, Globe, Lock, Cloud } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mic, Zap, ShieldCheck, Printer, Smartphone, BookOpen, Bot, Globe, Cloud } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 
 const features = [
@@ -17,6 +17,8 @@ const features = [
 ];
 
 export default function FeaturesPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen py-20 px-4 relative">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay pointer-events-none"></div>
@@ -30,7 +32,7 @@ export default function FeaturesPage() {
           Platform <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-500">Features.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-          VAANI isn't just a billing app. It's a complete autonomous retail operating system designed specifically for the unique challenges of Indian shopkeepers.
+          VAANI isn&apos;t just a billing app. It&apos;s a complete autonomous retail operating system designed specifically for the unique challenges of Indian shopkeepers.
         </motion.p>
       </div>
 
@@ -44,7 +46,7 @@ export default function FeaturesPage() {
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">No Internet? No Problem.</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              We know that internet connectivity can be unreliable in many parts of India. That's why VAANI is built with an offline-first architecture. 
+              We know that internet connectivity can be unreliable in many parts of India. That&apos;s why VAANI is built with an offline-first architecture.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
               You can continue to scan items, speak to the AI, generate bills, and print receipts without skipping a beat. The moment your phone connects to the internet, all your data silently syncs to the cloud.
@@ -94,10 +96,10 @@ export default function FeaturesPage() {
       
         
         {/* Metrics & ROI Section */}
-        <div className="max-w-7xl mx-auto relative z-10 pb-16 px-4">
+        <div className="max-w-7xl mx-auto relative z-10 pt-20 pb-16 px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Proven ROI for Retailers</h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">We don't just provide software; we provide measurable growth and massive time savings for your business.</p>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">We don&apos;t just provide software; we provide measurable growth and massive time savings for your business.</p>
           </motion.div>
           
           <div className="grid md:grid-cols-4 gap-6">
@@ -117,7 +119,7 @@ export default function FeaturesPage() {
         </div>
 
 {/* Comparison Section */}
-        <div className="max-w-7xl mx-auto relative z-10 pb-16 px-4">
+        <div className="max-w-7xl mx-auto relative z-10 pt-20 pb-16 px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">VAANI vs Traditional POS</h2>
             <p className="text-xl text-slate-600 dark:text-slate-400">Why thousands of retailers are throwing away their clunky billing machines.</p>
@@ -166,7 +168,7 @@ export default function FeaturesPage() {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto relative z-10 pb-16 px-4">
+        <div className="max-w-4xl mx-auto relative z-10 pt-20 pb-16 px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-6">Frequently Asked Questions</h2>
           </motion.div>
@@ -178,9 +180,28 @@ export default function FeaturesPage() {
               { q: "What happens if my internet disconnects?", a: "Nothing changes! You can continue billing, printing, and taking payments. VAANI stores everything locally and silently syncs to the cloud the moment your connection returns." },
               { q: "How does the Dynamic QR work?", a: "When you generate a bill, a unique UPI QR code appears on the screen for the exact total amount. When the customer pays, it automatically reconciles in your ledger." }
             ].map((faq, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-8 rounded-[2rem] bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:bg-white/[0.04] transition-colors">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{faq.q}</h3>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{faq.a}</p>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="rounded-[2rem] bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:bg-white/[0.04] transition-colors overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full text-left p-8 flex justify-between items-center gap-4 cursor-pointer group"
+                >
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{faq.q}</h3>
+                  <span className={`text-blue-500 text-2xl leading-none transition-transform duration-300 shrink-0 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed px-8 pb-8">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>

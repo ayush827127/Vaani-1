@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Smartphone, Zap } from 'lucide-react';
+import { Mic, Smartphone, Zap, CheckCircle } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 export default function VoiceSimulator() {
   const [isListening, setIsListening] = useState(false);
@@ -11,6 +12,17 @@ export default function VoiceSimulator() {
   const [cart, setCart] = useState<{name: string, qty: number, price: number}[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showProcessedBadge, setShowProcessedBadge] = useState(false);
+  const [justCleared, setJustCleared] = useState(false);
+  const [barHeights] = useState(() => Array.from({ length: 20 }, () => Math.random() * 24 + 8));
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const prompts = [
     { 
@@ -40,27 +52,34 @@ export default function VoiceSimulator() {
     const prompt = prompts.find(p => p.id === promptId);
     if (!prompt) return;
 
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
     setActivePrompt(promptId);
     setIsListening(true);
+    setIsProcessing(false);
     setTranscriptText("");
     setCart([]);
     setShowProcessedBadge(false);
+    setJustCleared(false);
 
     // Typewriter effect
     let i = 0;
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setTranscriptText(prompt.text.slice(0, i));
       i++;
       if (i > prompt.text.length) {
-        clearInterval(interval);
+        if (intervalRef.current) clearInterval(intervalRef.current);
         setIsListening(false);
         setIsProcessing(true);
-        
-        setTimeout(() => {
+
+        timeoutRef.current = setTimeout(() => {
           setIsProcessing(false);
           setCart(prompt.result);
           if (prompt.result.length > 0) {
             setShowProcessedBadge(true);
+          } else {
+            setJustCleared(true);
           }
         }, 400);
       }
@@ -82,7 +101,7 @@ export default function VoiceSimulator() {
             Try the Voice Engine Now.
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Click a prompt below to see how VAANI's Agentic AI instantly parses natural language into a structured cart.
+            Click a prompt below to see how VAANI&apos;s Agentic AI instantly parses natural language into a structured cart.
           </p>
         </div>
 
@@ -96,13 +115,13 @@ export default function VoiceSimulator() {
                 onClick={() => handlePromptClick(p.id)}
                 className={`text-left p-4 rounded-xl border transition-all ${activePrompt === p.id ? 'bg-blue-600/20 border-blue-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700 hover:border-slate-500'}`}
               >
-                "{p.text}"
+                &quot;{p.text}&quot;
               </button>
             ))}
-            
-            <button className="mt-4 flex items-center justify-center gap-2 p-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg hover:shadow-blue-500/50">
-              <Mic className="w-5 h-5" /> Try Your Microphone
-            </button>
+
+            <a href={SITE.apkUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-2 p-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg hover:shadow-blue-500/50">
+              <Mic className="w-5 h-5" /> Try With Your Voice — Get the App
+            </a>
           </div>
 
           <div className="w-full lg:w-2/3 bg-slate-950 border-4 border-slate-800 rounded-[2rem] p-6 lg:p-10 shadow-2xl relative overflow-hidden h-[500px] flex flex-col">
@@ -121,10 +140,10 @@ export default function VoiceSimulator() {
             <div className="mb-8 min-h-[80px]">
               {isListening && (
                 <div className="flex gap-1 items-center mb-4 h-8 justify-center">
-                  {[...Array(20)].map((_, i) => (
-                    <motion.div 
+                  {barHeights.map((h, i) => (
+                    <motion.div
                       key={i}
-                      animate={{ height: [8, Math.random() * 24 + 8, 8] }}
+                      animate={{ height: [8, h, 8] }}
                       transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.05 }}
                       className="w-1.5 bg-blue-500 rounded-full"
                     />
@@ -133,7 +152,7 @@ export default function VoiceSimulator() {
               )}
               {transcriptText && (
                 <div className="text-center">
-                  <p className="text-2xl font-light text-white">"{transcriptText}"</p>
+                  <p className="text-2xl font-light text-white">&quot;{transcriptText}&quot;</p>
                 </div>
               )}
             </div>
@@ -175,8 +194,18 @@ export default function VoiceSimulator() {
                   </div>
                 </motion.div>
               )}
+              {cart.length === 0 && justCleared && !isProcessing && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex-grow flex flex-col items-center justify-center text-slate-500"
+                >
+                  <CheckCircle className="w-10 h-10 text-blue-500 mb-3" />
+                  <p className="font-medium">Cart cleared</p>
+                </motion.div>
+              )}
             </AnimatePresence>
-            
+
             <AnimatePresence>
               {showProcessedBadge && (
                 <motion.div 

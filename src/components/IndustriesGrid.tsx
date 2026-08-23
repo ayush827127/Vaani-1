@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Package, ShoppingBag, Pill, Gift, Shirt, Coffee, Plug, Store, Settings, ArrowRight } from 'lucide-react';
+import { Package, ShoppingBag, Pill, Gift, Shirt, Coffee, Plug, Store, Settings } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 export default function IndustriesGrid() {
   const industries = [
@@ -128,12 +129,12 @@ export default function IndustriesGrid() {
           className="max-w-4xl mx-auto bg-gradient-to-r from-blue-500/5 to-blue-500/5 border border-blue-500/20 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
         >
           <div>
-            <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Don't see your business type?</h4>
+            <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Don&apos;t see your business type?</h4>
             <p className="text-slate-600 dark:text-slate-400 text-lg">Vaani AI is 100% customizable for any custom inventory or retail setup.</p>
           </div>
-          <button className="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 shadow-lg shadow-blue-500/30 transition-all hover:scale-105">
+          <a href={`mailto:${SITE.email}?subject=Custom Business Type - VAANI`} className="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 shadow-lg shadow-blue-500/30 transition-all hover:scale-105">
             Customize for My Business <Settings className="w-5 h-5 ml-2" />
-          </button>
+          </a>
         </motion.div>
 
       </div>

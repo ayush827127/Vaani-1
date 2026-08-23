@@ -2,6 +2,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export function Footer() {
   return (
@@ -12,13 +13,13 @@ export function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
             <div className="col-span-2 lg:col-span-2">
               <Link href="/" className="inline-block mb-6 group">
-                <img src="/new_logo.jpg" alt="VAANI Logo" className="h-16 w-auto object-contain mix-blend-multiply dark:invert dark:opacity-90 group-hover:scale-105 transition-all " />
+                <img src="/new_logo.png" alt="VAANI Logo" className="h-16 w-auto object-contain mix-blend-multiply dark:invert dark:opacity-90 group-hover:scale-105 transition-all " />
               </Link>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm transition-colors">Agentic AI designed for India's 6+ Crore retailers. Create bills just by speaking. Zero typing, zero training, maximum efficiency.</p>
+              <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm transition-colors">Agentic AI designed for India&apos;s 6+ Crore retailers. Create bills just by speaking. Zero typing, zero training, maximum efficiency.</p>
               <div className="flex gap-4">
-                <a href="mailto:ayush385361@gmail.com" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><Mail className="w-4 h-4" /></a>
-                <a href="#" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><Phone className="w-4 h-4" /></a>
-                <a href="#" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><MapPin className="w-4 h-4" /></a>
+                <a href={`mailto:${SITE.email}`} className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><Mail className="w-4 h-4" /></a>
+                <a href={SITE.phoneHref} className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><Phone className="w-4 h-4" /></a>
+                <a href="/contact" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-slate-600 dark:text-white"><MapPin className="w-4 h-4" /></a>
               </div>
             </div>
             
@@ -28,7 +29,7 @@ export function Footer() {
                 <li><Link href="/features" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Features</Link></li>
                 <li><Link href="/pricing" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing</Link></li>
                 <li><Link href="/how-it-works" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">How it works</Link></li>
-                <li><a href="/vaani.apk" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-blue-600 dark:text-blue-500 font-semibold">Download APK</a></li>
+                <li><a href={SITE.apkUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-blue-600 dark:text-blue-500 font-semibold">Download APK</a></li>
               </ul>
             </div>
 
@@ -51,7 +52,7 @@ export function Footer() {
           
           <div className="pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 transition-colors">
             <p className="text-slate-500 text-sm">© {new Date().getFullYear()} VAANI. Built for Bharat.</p>
-            <p className="text-slate-500 text-sm flex items-center gap-2">Designed with <span className="text-red-500">♥</span> in India</p>
+            <p className="text-slate-500 text-sm italic">Built from Bihar — for India, for the world.</p>
           </div>
         </div>
       </footer>

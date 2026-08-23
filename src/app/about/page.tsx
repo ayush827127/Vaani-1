@@ -15,10 +15,13 @@ export default function AboutPage() {
           Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-500">Bharat.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
-          VAANI was born from a real, everyday struggle. Our founder, Ayush Gupta, ran his father's shop and personally faced the billing problem every single day. The long queues, typing errors, and compliance headaches were a constant nightmare.
+          VAANI was born from a real, everyday struggle. Our founder, Ayush Gupta, ran his father&apos;s shop and personally faced the billing problem every single day. The long queues, typing errors, and compliance headaches were a constant nightmare.
+        </motion.p>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="mt-10 text-2xl md:text-3xl font-bold italic text-blue-600 dark:text-blue-400">
+          &quot;Built from Bihar, for India.&quot;
         </motion.p>
       </div>
-      
+
       {/* Founder Story Block with Image */}
       <div className="max-w-7xl mx-auto relative z-10 pb-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -29,10 +32,10 @@ export default function AboutPage() {
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-col">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Born in a real Kirana store.</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              Our founder, Ayush Gupta, grew up managing his father's local retail shop. He saw firsthand the daily chaos of unorganized inventory, handwritten ledgers, and the immense pressure of long checkout queues during peak hours.
+              Our founder, Ayush Gupta, grew up managing his father&apos;s local retail shop. He saw firsthand the daily chaos of unorganized inventory, handwritten ledgers, and the immense pressure of long checkout queues during peak hours.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-              Traditional ERP systems were too complex. Touchscreen billing apps were too slow. The only thing that worked was simply speaking to the customer. That's when the idea for VAANI was born: What if the software could listen and do the work automatically?
+              Traditional ERP systems were too complex. Touchscreen billing apps were too slow. The only thing that worked was simply speaking to the customer. That&apos;s when the idea for VAANI was born: What if the software could listen and do the work automatically?
             </p>
           </motion.div>
         </div>
@@ -51,7 +54,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Our Mission</h2>
               <p className="text-lg text-slate-700 dark:text-blue-100/80 leading-relaxed drop-shadow-sm">
-                To empower India's 6+ Crore unorganized retail MSMEs with cutting-edge Agentic AI, making digital billing, inventory management, and financial compliance as easy as speaking. We believe that world-class enterprise software shouldn't be restricted to massive supermarket chains with giant IT budgets. We are democratizing AI so the local shopkeeper can run their business just as efficiently as a global conglomerate, using only their voice.
+                To empower India&apos;s 6+ Crore unorganized retail MSMEs with cutting-edge Agentic AI, making digital billing, inventory management, and financial compliance as easy as speaking. We believe that world-class enterprise software shouldn&apos;t be restricted to massive supermarket chains with giant IT budgets. We are democratizing AI so the local shopkeeper can run their business just as efficiently as a global conglomerate, using only their voice.
               </p>
             </div>
           </motion.div>

@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Sparkles, Download, Mic, Store, BarChart, Settings, QrCode, CheckCircle } from 'lucide-react';
+import { Sparkles, Download, Mic, Store, BarChart, Settings, QrCode, CheckCircle } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
+import { SITE } from '@/lib/site';
 
 export default function StaticHero() {
   return (
@@ -14,7 +15,7 @@ export default function StaticHero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex flex-col items-start text-left z-30">
           
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6C5CE7]/10 border border-[#6C5CE7]/30 text-[#6C5CE7] dark:text-[#8d7ff7] text-sm font-semibold mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(108,92,231,0.15)]">
-            <b>India's #1 Voice Billing App 🇮🇳</b>
+            <b>India&apos;s #1 Voice Billing App 🇮🇳</b>
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 leading-[1.1] text-slate-900 dark:text-white">
@@ -23,11 +24,11 @@ export default function StaticHero() {
           </h1>
           
           <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-lg mb-10 font-medium leading-relaxed">
-            Empowering India's 60+ Million Kiranas. Turn your voice into professional GST invoices instantly. Zero tech skills required.
+            Empowering India&apos;s 60+ Million Kiranas. Turn your voice into professional GST invoices instantly. Zero tech skills required.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
-            <a href="/vaani.apk" download className="px-8 py-4 rounded-xl bg-[#6C5CE7] hover:bg-[#5a4cdb] text-white font-bold text-lg transition-all shadow-[0_0_30px_rgba(108,92,231,0.4)] hover:shadow-[0_0_40px_rgba(108,92,231,0.6)] hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2">
+            <a href={SITE.apkUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl bg-[#6C5CE7] hover:bg-[#5a4cdb] text-white font-bold text-lg transition-all shadow-[0_0_30px_rgba(108,92,231,0.4)] hover:shadow-[0_0_40px_rgba(108,92,231,0.6)] hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2">
               <Download className="w-5 h-5" /> Download VAANI App
             </a>
             <a href="/how-it-works" className="px-8 py-4 rounded-xl bg-transparent border-2 border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 text-slate-900 dark:text-white font-bold text-lg transition-all hover:bg-slate-50 dark:hover:bg-white/5 w-full sm:w-auto flex items-center justify-center gap-2">
@@ -37,12 +38,11 @@ export default function StaticHero() {
           
           <div className="flex items-center gap-4 text-sm font-medium text-slate-500 dark:text-slate-400">
             <div className="flex -space-x-3">
-               <img src="/bg_images/bg_34.jpg" className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] object-cover" />
-               <img src="/bg_images/bg_35.jpg" className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] object-cover" />
-               <img src="/bg_images/bg_36.jpg" className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] object-cover" />
-               <div className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold text-slate-600 dark:text-slate-400">+5k</div>
+               <div className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">MK</div>
+               <div className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">SK</div>
+               <div className="w-8 h-8 rounded-full border-2 border-slate-50 dark:border-[#030712] bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">ZA</div>
             </div>
-            Trusted by 5,000+ local retail & grocery stores
+            Piloted with real shopkeepers across Bihar
           </div>
         </motion.div>
         
@@ -58,7 +58,7 @@ export default function StaticHero() {
             className="absolute top-10 -left-6 md:-left-12 bg-white/90 dark:bg-[#1a1f2e]/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 flex items-center gap-3 z-40 animate-float-slow"
           >
             <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400"><Sparkles className="w-4 h-4"/></div>
-            <p className="font-bold text-slate-900 dark:text-white text-sm">✨ Voice Command:<br/><span className="text-xs text-slate-500 font-medium">'2 pcs Pepsi' added</span></p>
+            <p className="font-bold text-slate-900 dark:text-white text-sm">✨ Voice Command:<br/><span className="text-xs text-slate-500 font-medium">&apos;2 pcs Pepsi&apos; added</span></p>
           </motion.div>
 
           <motion.div 
@@ -96,7 +96,7 @@ export default function StaticHero() {
                 <div className="p-4">
                   <div className="w-full rounded-2xl bg-gradient-to-br from-[#6C5CE7] to-blue-600 p-5 shadow-lg shadow-[#6C5CE7]/30 mb-5 relative overflow-hidden">
                     <div className="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-                    <p className="text-blue-100 text-xs font-medium mb-1">Today's Sales</p>
+                    <p className="text-blue-100 text-xs font-medium mb-1">Today&apos;s Sales</p>
                     <h2 className="text-white text-3xl font-black mb-3">₹150.00</h2>
                     <div className="flex gap-6 border-t border-white/20 pt-3">
                       <div><p className="text-blue-200 text-[10px] uppercase font-bold mb-0.5">Orders</p><p className="text-white font-bold text-sm">12</p></div>

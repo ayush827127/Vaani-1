@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Sparkles } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
+import { SITE } from '@/lib/site';
 
 export default function PricingPage() {
   return (
@@ -32,11 +33,12 @@ export default function PricingPage() {
                 <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-2">Freemium</h3>
                 <div className="text-5xl font-black mb-8 text-slate-900 dark:text-white">FREE</div>
                 <ul className="text-slate-600 dark:text-slate-400 space-y-5 mb-10 text-left flex-grow">
-                  <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> Basic voice billing</li>
-                  <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> 50 bills / month</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> 50 voice bills / month</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> Inventory tracking &amp; analytics</li>
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> WhatsApp sharing</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> All other features included</li>
                 </ul>
-                <button className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors">Start Free</button>
+                <a href={SITE.apkUrl} target="_blank" rel="noopener noreferrer" className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors flex items-center justify-center">Start Free</a>
               </div>
             </motion.div>
           </Tilt>
@@ -50,7 +52,7 @@ export default function PricingPage() {
               <div className="relative z-10 flex flex-col h-full">
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.5)] whitespace-nowrap">MOST POPULAR</div>
                 <h3 className="text-xl font-bold text-blue-300 mb-2 text-center mt-2">Basic Plan</h3>
-                <div className="text-6xl font-black mb-2 text-center text-white">₹199<span className="text-2xl text-slate-400 font-medium">/mo</span></div>
+                <div className="text-6xl font-black mb-2 text-center text-white">₹99<span className="text-2xl text-slate-400 font-medium">/mo</span></div>
                 <p className="text-sm text-slate-400 mb-8 text-center">Core revenue driver</p>
                 <ul className="text-slate-200 space-y-5 mb-10 text-left flex-grow">
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0"/> Unlimited bills</li>
@@ -58,7 +60,7 @@ export default function PricingPage() {
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0"/> Inventory tracking</li>
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0"/> Smart Analytics</li>
                 </ul>
-                <button className="mt-auto w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors shadow-[0_0_20px_rgba(37,99,235,0.4)]">Upgrade to Basic</button>
+                <a href={`mailto:${SITE.email}?subject=Upgrade to Basic Plan - VAANI`} className="mt-auto w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center justify-center">Upgrade to Basic</a>
               </div>
             </motion.div>
           </Tilt>
@@ -71,7 +73,7 @@ export default function PricingPage() {
               
               <div className="relative z-10 flex flex-col h-full">
                 <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-2">Pro Plan</h3>
-                <div className="text-5xl font-black mb-2 text-slate-900 dark:text-white">₹1199<span className="text-2xl text-slate-600 dark:text-slate-400 font-medium">/mo</span></div>
+                <div className="text-5xl font-black mb-2 text-slate-900 dark:text-white">₹199<span className="text-2xl text-slate-600 dark:text-slate-400 font-medium">/mo</span></div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-8">For expanding businesses</p>
                 <ul className="text-slate-600 dark:text-slate-400 space-y-5 mb-10 text-left flex-grow">
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> Everything in Basic</li>
@@ -79,7 +81,7 @@ export default function PricingPage() {
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> Team access</li>
                   <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0"/> CA dashboard</li>
                 </ul>
-                <button className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors">Start Pro</button>
+                <a href={`mailto:${SITE.email}?subject=Start Pro Plan - VAANI`} className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors flex items-center justify-center">Start Pro</a>
               </div>
             </motion.div>
           </Tilt>

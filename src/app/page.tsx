@@ -1,27 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
-import { ChevronLeft, ChevronRight, QrCode, Printer, Send, ArrowRight, Check, CheckCircle, Mail, Star, Play, Settings, AlertTriangle, BarChart, ShieldCheck, Mic, Languages, BookOpen, Bot } from 'lucide-react';
+import { ChevronLeft, ChevronRight, QrCode, Printer, Send, ArrowRight, Check, CheckCircle, Mail, Settings, AlertTriangle, BarChart, ShieldCheck, Mic, Languages, BookOpen, Bot } from 'lucide-react';
 import StaticHero from '@/components/StaticHero';
 import VoiceSimulator from '@/components/VoiceSimulator';
 import IndustriesGrid from '@/components/IndustriesGrid';
-import ROICalculator from '@/components/ROICalculator';
 import Testimonials from '@/components/Testimonials';
+import { SITE, buildWhatsAppUrl } from '@/lib/site';
 
 export default function Home() {
-  
-  
-  
-
-  useEffect(() => {
-    // Basic interval for typing effect if needed
-    const interval = setInterval(() => {
-      
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     const slider = document.getElementById('real-users-slider');
@@ -64,31 +54,12 @@ export default function Home() {
         <StaticHero />
 
         {/* Scrollable Image Slider Section */}
-        <section className="py-24 bg-white dark:bg-[#030712] relative overflow-hidden group/slider">
+        <section className="py-24 bg-white dark:bg-[#030712] relative overflow-hidden">
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-sm font-bold text-blue-500 tracking-widest uppercase mb-3">Real Users</h2>
             <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Empowering shops across India</h3>
           </div>
           
-          {/* Scroll Buttons */}
-          <button 
-            onClick={() => {
-              document.getElementById('real-users-slider')?.scrollBy({ left: -400, behavior: 'smooth' });
-            }}
-            className="absolute left-4 top-[60%] -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all opacity-0 group-hover/slider:opacity-100"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={() => {
-              document.getElementById('real-users-slider')?.scrollBy({ left: 400, behavior: 'smooth' });
-            }}
-            className="absolute right-4 top-[60%] -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all opacity-0 group-hover/slider:opacity-100"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
           <div className="relative w-full">
             <div 
               id="real-users-slider"
@@ -98,7 +69,6 @@ export default function Home() {
                 "/bg_images/bg_1.jpg",
                 "/bg_images/bg_25.jpg",
                 "/bg_images/bg_3.jpg",
-                "/bg_images/bg_26.jpg",
                 "/bg_images/bg_4.jpg",
                 "/bg_images/bg_27.jpg",
                 "/bg_images/bg_6.jpg",
@@ -123,23 +93,23 @@ export default function Home() {
               <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">Why traditional apps fail.</h3>
             </motion.div>
             
-            <div className="relative group/slider">
+            <div className="relative">
               {/* Left Button */}
-              <button 
+              <button
                 onClick={() => {
                   document.getElementById('challenge-slider')?.scrollBy({ left: -400, behavior: 'smooth' });
                 }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all opacity-0 group-hover/slider:opacity-100 disabled:opacity-0"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              
+
               {/* Right Button */}
-              <button 
+              <button
                 onClick={() => {
                   document.getElementById('challenge-slider')?.scrollBy({ left: 400, behavior: 'smooth' });
                 }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all opacity-0 group-hover/slider:opacity-100 disabled:opacity-0"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-20 w-12 h-12 rounded-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 shadow-xl flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -190,7 +160,7 @@ export default function Home() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white">
                 From Voice to Printed Bill <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-400">in Under 5 Seconds</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-400">in Under 3 Seconds</span>
               </h2>
             </motion.div>
             
@@ -219,7 +189,7 @@ export default function Home() {
                     </div>
                     
                     <div className="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl rounded-tl-none w-fit shadow-md">
-                      <p className="text-lg font-medium text-slate-800 dark:text-slate-200">"दो पीस पेप्सी और 3 बोतल पानी"</p>
+                      <p className="text-lg font-medium text-slate-800 dark:text-slate-200">&quot;दो पीस पेप्सी और 3 बोतल पानी&quot;</p>
                     </div>
                   </div>
                 </div>
@@ -285,18 +255,25 @@ export default function Home() {
                       <p className="text-xs text-slate-500">GSTIN: 27AADCB2230M1Z2</p>
                     </div>
                     
-                    <div className="flex justify-center mb-6">
-                      {/* Fake QR Code */}
-                      <div className="w-32 h-32 bg-slate-100 p-2 rounded-lg border border-slate-200 grid grid-cols-4 grid-rows-4 gap-1">
-                         {[...Array(16)].map((_, i) => (
-                           <div key={i} className={`bg-slate-800 rounded-sm ${i%3===0 ? 'opacity-20' : ''}`}></div>
-                         ))}
+                    {/* Invoice Line Items */}
+                    <div className="text-left mb-6 space-y-2 border-y border-dashed border-slate-200 py-4">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-slate-600">Pepsi 500ml x2</span>
+                        <span className="text-slate-900 font-semibold">₹80</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-slate-600">Clear Water 1L x3</span>
+                        <span className="text-slate-900 font-semibold">₹70</span>
+                      </div>
+                      <div className="flex justify-between text-sm font-black pt-2 mt-2 border-t border-slate-200">
+                        <span className="text-slate-900">Total</span>
+                        <span className="text-blue-600">₹150</span>
                       </div>
                     </div>
-                    
-                    <button className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 shadow-lg transition-colors">
+
+                    <a href={buildWhatsAppUrl("Hi VAANI Team! I want a demo of the app.")} target="_blank" rel="noopener noreferrer" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 shadow-lg transition-colors">
                       <Send className="w-4 h-4" /> Share on WhatsApp
-                    </button>
+                    </a>
                   </div>
                 </div>
                 
@@ -324,34 +301,34 @@ export default function Home() {
                   icon: Mic, 
                   title: "AI Voice Commander", 
                   desc: "Zero typing required. Works flawlessly in Hindi, English, and Hinglish even in extremely noisy shop environments.",
-                  gradient: "from-blue-500 to-blue-500",
+                  gradient: "from-blue-500 to-blue-600",
                   bgImage: "/bg_images/bg_7.jpg"
                 },
                 { 
                   icon: QrCode, 
                   title: "Instant Invoicing & Dynamic UPI", 
                   desc: "Generates ready-to-pay QR codes directly on invoices, supporting Cash, UPI, Card, and Udhaar (Credit) ledger tracking.",
-                  gradient: "from-blue-500 to-blue-500",
+                  gradient: "from-blue-500 to-blue-600",
                   bgImage: "/bg_images/bg_3.jpg"
                 },
                 { 
                   icon: BarChart, 
                   title: "Smart Inventory & Margin Analytics", 
                   desc: "Real-time profit indicators per item (e.g., ₹20 profit / 50% margin), low-stock badges, and instant category filters.",
-                  gradient: "from-blue-500 to-blue-500",
+                  gradient: "from-blue-500 to-blue-600",
                   bgImage: "/bg_images/bg_12.jpg"
                 },
                 { 
                   icon: Printer, 
                   title: "Cloud Sync & Printer Ecosystem", 
                   desc: "Automatic offline caching with background cloud sync. Direct support for network/Bluetooth thermal printers (58mm/80mm) and A4 PDF export.",
-                  gradient: "from-blue-500 to-red-500",
+                  gradient: "from-blue-500 to-blue-600",
                   bgImage: "/bg_images/bg_32.jpg"
                 }
               ].map((feature, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
                   {/* Subtle Border Gradient Wrapper */}
-                  <div className={`p-[2px] rounded-[2.5rem] bg-gradient-to-br ${feature.gradient} group hover:shadow-2xl hover:shadow-${feature.gradient.split('-')[1]}-500/20 transition-all duration-500 h-full`}>
+                  <div className={`p-[2px] rounded-[2.5rem] bg-gradient-to-br ${feature.gradient} group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 h-full`}>
                     <div className="rounded-[calc(2.5rem-2px)] bg-white dark:bg-slate-900 h-full p-8 md:p-10 relative overflow-hidden flex flex-col justify-between z-10 group-hover:bg-opacity-95 dark:group-hover:bg-opacity-90 transition-all">
                       
                       {/* Background Image Overlay */}
@@ -440,9 +417,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ROI Calculator */}
-        <ROICalculator />
-
         {/* Customer Success */}
         <Testimonials />
 
@@ -458,10 +432,10 @@ export default function Home() {
                 <h2 className="text-sm font-bold text-blue-500 tracking-widest uppercase mb-3">Our Story</h2>
                 <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900 dark:text-white">Built from a real, everyday struggle.</h3>
                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                  "I ran my father's shop from the beginning and personally faced the billing problem every single day. The long queues, typing errors, and the compliance headaches were a constant nightmare."
+                  &quot;I ran my father&apos;s shop from the beginning and personally faced the billing problem every single day. The long queues, typing errors, and the compliance headaches were a constant nightmare.&quot;
                 </p>
                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                  Combining my CA/CS compliance expertise with a deep background in AI/ML, VAANI was born to finally give India's shopkeepers a tool that works exactly how they think—through voice.
+                  Combining my CA/CS compliance expertise with a deep background in AI/ML, VAANI was born to finally give India&apos;s shopkeepers a tool that works exactly how they think—through voice.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-full bg-slate-800 border border-slate-200 dark:border-white/10 flex items-center justify-center font-bold text-xl text-blue-400">AG</div>
@@ -470,6 +444,7 @@ export default function Home() {
                     <p className="text-blue-500 text-sm">Founder & CEO, VAANI</p>
                   </div>
                 </div>
+                <p className="mt-6 text-sm italic text-slate-500 dark:text-slate-400">&quot;Built from Bihar — for India, for the world.&quot;</p>
               </motion.div>
             </div>
           </div>
@@ -494,11 +469,12 @@ export default function Home() {
                     <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-2">Freemium</h3>
                     <div className="text-5xl font-black mb-8 text-slate-900 dark:text-white">FREE</div>
                     <ul className="text-slate-600 dark:text-slate-400 space-y-5 mb-10 text-left">
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> Basic voice billing</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> 50 bills / month</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> 50 voice bills / month</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> Inventory tracking &amp; analytics</li>
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> WhatsApp sharing</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> All other features included</li>
                     </ul>
-                    <button className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors">Start Free</button>
+                    <a href={SITE.apkUrl} target="_blank" rel="noopener noreferrer" className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors flex items-center justify-center">Start Free</a>
                   </div>
                 </motion.div>
               </Tilt>
@@ -511,7 +487,7 @@ export default function Home() {
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.5)] whitespace-nowrap">MOST POPULAR</div>
                     <h3 className="text-xl font-bold text-blue-300 mb-2 text-center mt-2">Basic Plan</h3>
-                    <div className="text-6xl font-black mb-2 text-center text-white">₹199<span className="text-2xl text-slate-400 font-medium">/mo</span></div>
+                    <div className="text-6xl font-black mb-2 text-center text-white">₹99<span className="text-2xl text-slate-400 font-medium">/mo</span></div>
                     <p className="text-sm text-slate-400 mb-8 text-center">Core revenue driver</p>
                     <ul className="text-slate-200 space-y-5 mb-10 text-left">
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400"/> Unlimited bills</li>
@@ -519,7 +495,7 @@ export default function Home() {
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400"/> Inventory tracking</li>
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400"/> Smart Analytics</li>
                     </ul>
-                    <button className="mt-auto w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors shadow-[0_0_20px_rgba(37,99,235,0.4)]">Upgrade to Basic</button>
+                    <a href={`mailto:${SITE.email}?subject=Upgrade to Basic Plan - VAANI`} className="mt-auto w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center justify-center">Upgrade to Basic</a>
                   </div>
                 </motion.div>
               </Tilt>
@@ -531,7 +507,7 @@ export default function Home() {
                   
                   <div className="relative z-10 flex flex-col h-full">
                     <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-2">Pro Plan</h3>
-                    <div className="text-5xl font-black mb-2 text-slate-900 dark:text-white">₹1199<span className="text-2xl text-slate-600 dark:text-slate-400 font-medium">/mo</span></div>
+                    <div className="text-5xl font-black mb-2 text-slate-900 dark:text-white">₹199<span className="text-2xl text-slate-600 dark:text-slate-400 font-medium">/mo</span></div>
                     <p className="text-sm text-slate-600 dark:text-slate-400 mb-8">For expanding businesses</p>
                     <ul className="text-slate-600 dark:text-slate-400 space-y-5 mb-10 text-left">
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> Everything in Basic</li>
@@ -539,7 +515,7 @@ export default function Home() {
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> Team access</li>
                       <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-500"/> CA dashboard</li>
                     </ul>
-                    <button className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors">Start Pro</button>
+                    <a href={`mailto:${SITE.email}?subject=Start Pro Plan - VAANI`} className="mt-auto w-full py-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold transition-colors flex items-center justify-center">Start Pro</a>
                   </div>
                 </motion.div>
               </Tilt>
@@ -560,12 +536,28 @@ export default function Home() {
                 { q: "Does it work with my thermal printer?", a: "Yes! VAANI connects seamlessly with standard bluetooth or USB thermal printers for instant receipt generation." },
                 { q: "Is my data secure?", a: "Absolutely. All your business data is encrypted and backed up securely in the cloud. Only you have access to your financials." }
               ].map((faq, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-6 rounded-2xl bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:bg-white/[0.04] transition-colors cursor-pointer group">
-                  <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 flex justify-between items-center">
-                    {faq.q}
-                    <span className="text-blue-500 group-hover:rotate-180 transition-transform duration-300">+</span>
-                  </h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm">{faq.a}</p>
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="rounded-2xl bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:bg-white/[0.04] transition-colors overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full text-left p-6 flex justify-between items-center gap-4 cursor-pointer group"
+                  >
+                    <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{faq.q}</h4>
+                    <span className={`text-blue-500 transition-transform duration-300 shrink-0 ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-slate-600 dark:text-slate-400 text-sm px-6 pb-6">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
             </div>
@@ -581,10 +573,10 @@ export default function Home() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mb-6 text-slate-900 dark:text-white">Join the Retail Revolution.</h2>
                 <p className="text-lg md:text-xl text-slate-700 dark:text-blue-200 mb-10 max-w-2xl mx-auto">We are rapidly scaling across India and currently opening our early access program and engaging with strategic investors.</p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <a href="mailto:ayush385361@gmail.com?subject=Investor Inquiry - VAANI" className="px-8 py-4 rounded-full bg-white text-blue-900 font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2 border border-slate-200 dark:border-transparent">
+                  <a href={`mailto:${SITE.email}?subject=Investor Inquiry - VAANI`} className="px-8 py-4 rounded-full bg-white text-blue-900 font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2 border border-slate-200 dark:border-transparent">
                     <Mail className="w-5 h-5" /> Investor Inquiry
                   </a>
-                  <a href="mailto:ayush385361@gmail.com?subject=Early Access - VAANI" className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                  <a href={buildWhatsAppUrl("Hi VAANI Team! I want early access to the app.")} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2">
                     Request Early Access <ArrowRight className="w-5 h-5" />
                   </a>
                 </div>

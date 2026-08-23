@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Target, PieChart, ChevronRight } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 export default function InvestorsPage() {
   return (
@@ -17,7 +18,10 @@ export default function InvestorsPage() {
           Invest in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-500">Retail Revolution.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
-          India's 60+ Million unorganized MSME retailers process over $800B annually in cash and UPI. We are building the voice-first autonomous AI infrastructure to bring them entirely into the digital economy.
+          India&apos;s 60+ Million unorganized MSME retailers process over $800B annually in cash and UPI. We are building the voice-first autonomous AI infrastructure to bring them entirely into the digital economy.
+        </motion.p>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mt-8 text-xl md:text-2xl font-bold italic text-blue-600 dark:text-blue-400">
+          &quot;Built from Bihar — for India, for the world.&quot;
         </motion.p>
       </div>
 
@@ -56,7 +60,7 @@ export default function InvestorsPage() {
           </div>
           
           <div className="relative z-10 flex-shrink-0">
-            <a href="mailto:ayush385361@gmail.com" className="bg-white text-blue-600 px-8 py-5 rounded-2xl font-black text-lg transition-all hover:bg-slate-50 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center gap-3">
+            <a href={`mailto:${SITE.email}?subject=Investor Inquiry - VAANI`} className="bg-white text-blue-600 px-8 py-5 rounded-2xl font-black text-lg transition-all hover:bg-slate-50 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center gap-3">
               Contact Founders <ChevronRight className="w-6 h-6" />
             </a>
           </div>
