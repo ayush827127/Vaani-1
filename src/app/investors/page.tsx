@@ -11,7 +11,7 @@ export default function InvestorsPage() {
       
       {/* Hero Section */}
       <div className="max-w-5xl mx-auto text-center mb-24 relative z-10 pt-16">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-300 text-sm font-semibold mb-8 backdrop-blur-md">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="max-w-full inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-300 text-sm font-semibold mb-8 backdrop-blur-md">
           <TrendingUp className="w-4 h-4" /> Seed Round Currently Open
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="text-5xl md:text-7xl font-black tracking-tighter mb-8 text-slate-900 dark:text-white">
@@ -30,7 +30,7 @@ export default function InvestorsPage() {
           {[
             { title: "Total Addressable Market", stat: "$800B+", desc: "Annual Unorganized Retail Volume", icon: PieChart, img: "/bg_images/bg_3.jpg" },
             { title: "Target Audience", stat: "60M+", desc: "Kiranas & Local MSMEs in India", icon: Target, img: "/bg_images/bg_2.jpg" },
-            { title: "Current Growth", stat: "150%", desc: "Month-over-Month User Acquisition", icon: TrendingUp, img: "/bg_images/bg_5.jpg" }
+            { title: "Current Stage", stat: "Private Beta", desc: "Actively piloting with real shopkeepers ahead of public launch", icon: TrendingUp, img: "/bg_images/bg_5.jpg" }
           ].map((item, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="rounded-[2.5rem] border border-slate-200 dark:border-white/5 relative overflow-hidden group shadow-lg flex flex-col h-full">
               <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-100 mix-blend-luminosity" style={{ backgroundImage: 'url(' + item.img + ')' }}></div>
@@ -75,12 +75,12 @@ export default function InvestorsPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Proprietary Voice NLP", desc: "Our AI model is specifically fine-tuned for Indian retail dialects. It handles mixed-language queries (Hinglish, Marathish) with 99.4% accuracy, outperforming generic models.", icon: "🧠" },
+              { title: "Purpose-Built Voice NLP", desc: "Our AI model is designed and trained specifically for Indian retail dialects and mixed-language queries (Hinglish, Marathish), not adapted from a generic model — and it's being validated directly with real shopkeepers during our private beta.", icon: "🧠" },
               { title: "Zero Hardware Cost", desc: "Unlike traditional POS companies that require ₹35,000+ hardware setups, VAANI runs flawlessly on the shopkeeper's existing ₹8,000 Android smartphone.", icon: "📱" },
-              { title: "Massive Uncapped TAM", desc: "India has over 60 Million unorganized retailers processing $800B+ annually. We are the first platform to successfully bridge their digital literacy gap.", icon: "📈" },
-              { title: "B2B SaaS Margins", desc: "High retention, recurring revenue SaaS model. Once a shopkeeper digitizes their ledger and inventory with VAANI, our churn rate drops to near-zero.", icon: "💰" }
+              { title: "Massive Uncapped TAM", desc: "India has over 60 Million unorganized retailers processing $800B+ annually. We aim to be among the first platforms to successfully bridge their digital literacy gap.", icon: "📈" },
+              { title: "Built for Retention by Design", desc: "A recurring-revenue SaaS model where switching costs rise over time: once a shopkeeper digitizes their ledger and inventory with VAANI, going back to pen-and-paper becomes genuinely painful.", icon: "💰" }
             ].map((highlight, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-8 rounded-[2rem] bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:bg-white/[0.04] transition-colors flex gap-6">
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-8 rounded-[2rem] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-lg hover:shadow-xl dark:hover:bg-white/[0.04] transition-all flex gap-6">
                 <div className="text-4xl">{highlight.icon}</div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{highlight.title}</h3>
@@ -91,23 +91,24 @@ export default function InvestorsPage() {
           </div>
         </div>
 
-        {/* Traction Timeline */}
+        {/* Journey Timeline */}
         <div className="mt-20 mb-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">Traction & Milestones</h2>
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">Our Journey So Far</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">We&apos;re early — VAANI is pre-launch and not yet on the Play Store. Here&apos;s where we honestly stand today.</p>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-500 before:via-blue-500 before:to-transparent">
               {[
-                { date: "Q1 2024", title: "Product Launch", desc: "Launched MVP in Gujarat and Maharashtra. Reached 1,000 active retailers within the first 30 days entirely via word-of-mouth." },
-                { date: "Q2 2024", title: "Web Bluetooth Integration", desc: "Successfully deployed native ESC/POS thermal printing directly from the browser, bypassing the need for native Android APKs." },
-                { date: "Q3 2024", title: "10M+ Bills Processed", desc: "Crossed 10 million total bills generated on the platform. Added support for 5 new regional languages." },
-                { date: "Q4 2024", title: "Seed Round Open", desc: "Actively raising Seed capital to scale engineering, expand language support, and execute a pan-India GTM strategy." }
+                { date: "The Problem", title: "Lived, Not Researched", desc: "Our founder personally ran his father's kirana shop and faced the daily pain of manual billing, typing errors, and GST compliance headaches firsthand." },
+                { date: "Building VAANI", title: "CA/CS Expertise Meets AI/ML", desc: "Combined compliance expertise with an AI/ML background to build a voice-first, offline-capable billing engine from the ground up." },
+                { date: "Right Now", title: "Private Beta", desc: "Actively piloting with real shopkeepers — a toy shop, a kirana store, and a gift shop owner — who are already asking for the app to launch and are willing to pay for it." },
+                { date: "What's Next", title: "Public Launch", desc: "Preparing to bring VAANI to the Play Store and onboard India's first wave of voice-billing retailers." }
               ].map((item, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#030712] bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)] md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shrink-0 relative z-10"></div>
-                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl border border-slate-200 dark:border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors shadow-lg">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-[#030712] bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)] md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shrink-0 relative z-10"></div>
+                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl border border-slate-200 dark:border-white/5 bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-colors shadow-lg">
                     <span className="text-sm font-bold text-blue-600 dark:text-blue-400 mb-2 block">{item.date}</span>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
                     <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>

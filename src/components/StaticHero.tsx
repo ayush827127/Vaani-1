@@ -14,7 +14,7 @@ export default function StaticHero() {
         {/* Left Column: Hero Content */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex flex-col items-start text-left z-30">
           
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6C5CE7]/10 border border-[#6C5CE7]/30 text-[#6C5CE7] dark:text-[#8d7ff7] text-sm font-semibold mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(108,92,231,0.15)]">
+          <div className="max-w-full inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6C5CE7]/10 border border-[#6C5CE7]/30 text-[#6C5CE7] dark:text-[#8d7ff7] text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(108,92,231,0.15)]">
             <b>India&apos;s #1 Voice Billing App 🇮🇳</b>
           </div>
           
@@ -55,7 +55,7 @@ export default function StaticHero() {
           {/* Floating Elements (Parallax) */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.2, duration: 0.8 }}
-            className="absolute top-10 -left-6 md:-left-12 bg-white/90 dark:bg-[#1a1f2e]/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 flex items-center gap-3 z-40 animate-float-slow"
+            className="hidden sm:flex absolute top-10 -left-6 md:-left-12 bg-white/90 dark:bg-[#1a1f2e]/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 items-center gap-3 z-40 animate-float-slow"
           >
             <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400"><Sparkles className="w-4 h-4"/></div>
             <p className="font-bold text-slate-900 dark:text-white text-sm">✨ Voice Command:<br/><span className="text-xs text-slate-500 font-medium">&apos;2 pcs Pepsi&apos; added</span></p>
@@ -63,7 +63,7 @@ export default function StaticHero() {
 
           <motion.div 
             initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.5, duration: 0.8 }}
-            className="absolute bottom-20 -right-4 md:-right-12 bg-white/90 dark:bg-[#1a1f2e]/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 flex items-center gap-3 z-40 animate-float"
+            className="hidden sm:flex absolute bottom-20 -right-4 md:-right-12 bg-white/90 dark:bg-[#1a1f2e]/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 items-center gap-3 z-40 animate-float"
           >
             <div className="w-10 h-10 bg-white rounded-lg p-1 shadow-inner border border-slate-100 dark:border-slate-800">
                <div className="w-full h-full bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg')] bg-cover opacity-80 mix-blend-multiply"></div>

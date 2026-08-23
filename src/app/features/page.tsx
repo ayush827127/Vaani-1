@@ -16,6 +16,14 @@ const features = [
   { icon: Cloud, title: "Cloud Backup", desc: "Your financial data is encrypted and backed up to our secure enterprise-grade PostgreSQL servers every minute. Never lose a single ledger entry.", img: "/bg_images/bg_21.jpg", tag: "Included" }
 ];
 
+const comparison = [
+  { feature: "Input Method", traditional: "Manual Keyboard / Barcode", vaani: "100% Natural Voice" },
+  { feature: "Training Required", traditional: "3-5 Days", vaani: "Zero (Speak natively)" },
+  { feature: "Hardware Cost", traditional: "₹35,000+ (PC + Scanner)", vaani: "₹0 (Use your smartphone)" },
+  { feature: "Regional Languages", traditional: "English Only", vaani: "10+ Indian Languages" },
+  { feature: "Offline Capabilities", traditional: "Stops working / Data loss", vaani: "Flawless Offline Sync" }
+];
+
 export default function FeaturesPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -25,7 +33,7 @@ export default function FeaturesPage() {
       
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto text-center mb-32 relative z-10 pt-16">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-sm font-semibold mb-8">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="max-w-full inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-sm font-semibold mb-8">
           <Zap className="w-4 h-4" /> Everything you need to scale
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="text-5xl md:text-7xl font-black tracking-tighter mb-8">
@@ -41,7 +49,7 @@ export default function FeaturesPage() {
       <div className="max-w-7xl mx-auto relative z-10 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="flex flex-col">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6 w-fit">
+            <div className="max-w-full inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6 w-fit">
               <Zap className="w-4 h-4" /> 100% Offline Capable
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">No Internet? No Problem.</h2>
@@ -126,7 +134,8 @@ export default function FeaturesPage() {
           </motion.div>
           
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-[3rem] border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-[#050810]/50 backdrop-blur-xl overflow-hidden shadow-2xl">
-            <div className="overflow-x-auto">
+            {/* Desktop/tablet table */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b border-slate-200 dark:border-white/10">
@@ -136,33 +145,32 @@ export default function FeaturesPage() {
                   </tr>
                 </thead>
                 <tbody className="text-lg">
-                  <tr className="border-b border-slate-200 dark:border-white/5">
-                    <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">Input Method</td>
-                    <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">Manual Keyboard / Barcode</td>
-                    <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">100% Natural Voice</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-white/5">
-                    <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">Training Required</td>
-                    <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">3-5 Days</td>
-                    <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">Zero (Speak natively)</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-white/5">
-                    <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">Hardware Cost</td>
-                    <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">₹35,000+ (PC + Scanner)</td>
-                    <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">₹0 (Use your smartphone)</td>
-                  </tr>
-                  <tr className="border-b border-slate-200 dark:border-white/5">
-                    <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">Regional Languages</td>
-                    <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">English Only</td>
-                    <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">10+ Indian Languages</td>
-                  </tr>
-                  <tr>
-                    <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">Offline Capabilities</td>
-                    <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">Stops working / Data loss</td>
-                    <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">Flawless Offline Sync</td>
-                  </tr>
+                  {comparison.map((row, i) => (
+                    <tr key={i} className={i < comparison.length - 1 ? "border-b border-slate-200 dark:border-white/5" : ""}>
+                      <td className="p-8 font-semibold text-slate-800 dark:text-slate-200">{row.feature}</td>
+                      <td className="p-8 text-slate-500 bg-slate-50 dark:bg-white/5">{row.traditional}</td>
+                      <td className="p-8 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/10 font-bold">{row.vaani}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile stacked cards */}
+            <div className="md:hidden divide-y divide-slate-200 dark:divide-white/5">
+              {comparison.map((row, i) => (
+                <div key={i} className="p-6">
+                  <div className="text-sm font-bold text-slate-900 dark:text-white mb-3">{row.feature}</div>
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 shrink-0 pt-0.5">Traditional</span>
+                    <span className="text-sm text-slate-500 text-right">{row.traditional}</span>
+                  </div>
+                  <div className="flex items-start justify-between gap-3 bg-blue-50 dark:bg-blue-900/10 rounded-xl px-3 py-2">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 shrink-0 pt-0.5">VAANI AI</span>
+                    <span className="text-sm text-blue-700 dark:text-blue-300 font-bold text-right">{row.vaani}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
