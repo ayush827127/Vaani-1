@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="rounded-[3rem] border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-[#050810]/50 backdrop-blur-xl p-8 md:p-16 shadow-2xl">
           <div className="prose prose-slate dark:prose-invert max-w-none prose-lg">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">1. Introduction</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">VAANI (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is a voice-first billing and retail operating system built for Indian shopkeepers, currently offered in private beta. This Privacy Policy explains what information we collect through our app and website, why we collect it, and the choices you have. By using VAANI, you agree to the practices described here.</p>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">VAANI (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is a voice-first billing and retail operating system built for Indian shopkeepers. This Privacy Policy explains what information we collect through our app and website, why we collect it, and the choices you have. By using VAANI, you agree to the practices described here.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">2. Information We Collect</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">We collect the following categories of information:</p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">VAANI is a business tool intended for retailers and is not directed at children. We do not knowingly collect personal information from individuals under 18.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">9. Changes to This Policy</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">As VAANI is in active development during our private beta, this policy may be updated from time to time. We will update the &quot;Last updated&quot; date above whenever we make changes, and material changes will be communicated to registered users.</p>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">This policy may be updated from time to time. We will update the &quot;Last updated&quot; date above whenever we make changes, and material changes will be communicated to registered users.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">10. Contact Us</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">For any questions about this Privacy Policy or your data, contact:</p>

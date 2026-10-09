@@ -1,4 +1,6 @@
 export const SITE = {
+  name: "Vaani AI Billing",
+  url: "https://vaani-1.vercel.app",
   founderName: "Ayush Gupta",
   email: "ayush385361@gmail.com",
   phoneDisplay: "+91 82712 74460",
@@ -6,8 +8,15 @@ export const SITE = {
   whatsappNumber: "918271274460",
   address: "Gaya, Bihar 823001",
   addressShort: "Gaya, Bihar",
-  apkUrl: "https://drive.google.com/file/d/1sR2GdcE2KZ6ZLAd46T6k9xpxX_4Ci0p9/view?usp=sharing",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.vaaniAi.vaani&hl=en_IN",
 } as const;
+
+/**
+ * Real app screenshots. Add files under public/screenshots/ and list them here;
+ * the homepage "See the app" section renders only when this is non-empty.
+ * Do not add mock-ups or generated UI images.
+ */
+export const SCREENSHOTS: { src: string; alt: string; width: number; height: number }[] = [];
 
 export function buildWhatsAppUrl(message: string) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;

@@ -23,8 +23,8 @@ export default function TermsPage() {
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">1. Acceptance of Terms</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">These Terms &amp; Conditions (&quot;Terms&quot;) govern your access to and use of VAANI, a voice-first billing and retail operating system for Indian retailers. By downloading, installing, or using VAANI, you agree to be bound by these Terms. If you do not agree, please do not use the service.</p>
 
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">2. Private Beta</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">VAANI is currently offered as a private beta. Features, pricing, and availability may change without notice, and the service is provided on an &quot;as is&quot; and &quot;as available&quot; basis during this period. We will make reasonable efforts to notify users of significant changes.</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">2. Service Availability</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">Features, pricing, and availability may change without notice, and the service is provided on an &quot;as is&quot; and &quot;as available&quot; basis. We will make reasonable efforts to notify users of significant changes.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">3. Eligibility &amp; Accounts</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">VAANI is intended for use by retailers, shop owners, and businesses operating in India who are at least 18 years old. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
@@ -69,7 +69,7 @@ export default function TermsPage() {
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">These Terms are governed by the laws of India. Any disputes arising from these Terms or your use of VAANI will be subject to the exclusive jurisdiction of the courts in Gaya, Bihar.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">12. Changes to These Terms</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">We may update these Terms as VAANI evolves out of private beta. We will update the &quot;Last updated&quot; date above, and will notify registered users of material changes.</p>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">We may update these Terms as VAANI evolves. We will update the &quot;Last updated&quot; date above, and will notify registered users of material changes.</p>
 
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">13. Contact Us</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">For any questions about these Terms, contact:</p>

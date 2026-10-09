@@ -30,7 +30,7 @@ export default function InvestorsPage() {
           {[
             { title: "Total Addressable Market", stat: "$800B+", desc: "Annual Unorganized Retail Volume", icon: PieChart, img: "/bg_images/bg_3.jpg" },
             { title: "Target Audience", stat: "60M+", desc: "Kiranas & Local MSMEs in India", icon: Target, img: "/bg_images/bg_2.jpg" },
-            { title: "Current Stage", stat: "Private Beta", desc: "Actively piloting with real shopkeepers ahead of public launch", icon: TrendingUp, img: "/bg_images/bg_5.jpg" }
+            { title: "Current Stage", stat: "Live", desc: "Available to download on Google Play", icon: TrendingUp, img: "/bg_images/bg_5.jpg" }
           ].map((item, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="rounded-[2.5rem] border border-slate-200 dark:border-white/5 relative overflow-hidden group shadow-lg flex flex-col h-full">
               <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-100 mix-blend-luminosity" style={{ backgroundImage: 'url(' + item.img + ')' }}></div>
@@ -75,7 +75,7 @@ export default function InvestorsPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Purpose-Built Voice NLP", desc: "Our AI model is designed and trained specifically for Indian retail dialects and mixed-language queries (Hinglish, Marathish), not adapted from a generic model — and it's being validated directly with real shopkeepers during our private beta.", icon: "🧠" },
+              { title: "Purpose-Built Voice NLP", desc: "Our AI model is designed and trained specifically for Indian retail dialects and mixed-language queries (Hinglish, Marathish), not adapted from a generic model — and it's being refined with feedback from real shopkeepers.", icon: "🧠" },
               { title: "Zero Hardware Cost", desc: "Unlike traditional POS companies that require ₹35,000+ hardware setups, VAANI runs flawlessly on the shopkeeper's existing ₹8,000 Android smartphone.", icon: "📱" },
               { title: "Massive Uncapped TAM", desc: "India has over 60 Million unorganized retailers processing $800B+ annually. We aim to be among the first platforms to successfully bridge their digital literacy gap.", icon: "📈" },
               { title: "Built for Retention by Design", desc: "A recurring-revenue SaaS model where switching costs rise over time: once a shopkeeper digitizes their ledger and inventory with VAANI, going back to pen-and-paper becomes genuinely painful.", icon: "💰" }
@@ -95,7 +95,7 @@ export default function InvestorsPage() {
         <div className="mt-20 mb-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">Our Journey So Far</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">We&apos;re early — VAANI is pre-launch and not yet on the Play Store. Here&apos;s where we honestly stand today.</p>
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">VAANI is available on Google Play. Here&apos;s where we stand today.</p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -103,8 +103,8 @@ export default function InvestorsPage() {
               {[
                 { date: "The Problem", title: "Lived, Not Researched", desc: "Our founder personally ran his father's kirana shop and faced the daily pain of manual billing, typing errors, and GST compliance headaches firsthand." },
                 { date: "Building VAANI", title: "CA/CS Expertise Meets AI/ML", desc: "Combined compliance expertise with an AI/ML background to build a voice-first, offline-capable billing engine from the ground up." },
-                { date: "Right Now", title: "Private Beta", desc: "Actively piloting with real shopkeepers — a toy shop, a kirana store, and a gift shop owner — who are already asking for the app to launch and are willing to pay for it." },
-                { date: "What's Next", title: "Public Launch", desc: "Preparing to bring VAANI to the Play Store and onboard India's first wave of voice-billing retailers." }
+                { date: "Right Now", title: "Live on Google Play", desc: "VAANI is available to download on Google Play and is being improved with feedback from shopkeepers." },
+                { date: "What's Next", title: "Growing Adoption", desc: "Onboarding more shopkeepers and improving the app based on how they use it." }
               ].map((item, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-[#030712] bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)] md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shrink-0 relative z-10"></div>
