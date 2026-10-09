@@ -1,19 +1,25 @@
+"use client";
+
+import React from 'react';
+import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { buildWhatsAppUrl } from '@/lib/site';
 
-const SUPPORT_MESSAGE = "Hi Vaani team, I have a question about the Vaani billing app.";
+const DEMO_MESSAGE = "Hi VAANI Team! I want a demo of the app.";
 
 export default function WhatsAppDemoModal() {
   return (
-    <a
-      href={buildWhatsAppUrl(SUPPORT_MESSAGE)}
+    <motion.a
+      href={buildWhatsAppUrl(DEMO_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with Vaani on WhatsApp"
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-[#128C7E] hover:bg-[#0e6e63] text-white p-3.5 sm:px-5 sm:py-3 rounded-full shadow-xl flex items-center gap-2 font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128C7E]"
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 1, type: "spring", stiffness: 200, damping: 20 }}
+      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 font-bold text-lg transition-transform hover:scale-105 group"
     >
-      <MessageCircle className="w-6 h-6" aria-hidden="true" />
-      <span className="hidden sm:inline">WhatsApp us</span>
-    </a>
+      <MessageCircle className="w-6 h-6 animate-pulse" />
+      <span className="hidden sm:inline">Book Demo</span>
+    </motion.a>
   );
 }

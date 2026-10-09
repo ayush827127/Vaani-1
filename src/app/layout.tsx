@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: SITE.url,
     locale: "en_IN",
-    images: [{ url: "/new_logo.png", width: 676, height: 369, alt: "Vaani AI Billing logo" }],
+    images: [{ url: "/screenshots/banner.webp", width: 1024, height: 500, alt: "Vaani AI Billing: smart billing, simple business" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/new_logo.png"],
+    images: ["/screenshots/banner.webp"],
   },
 };
 
@@ -70,14 +70,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 overflow-x-hidden antialiased`} suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 overflow-x-hidden antialiased transition-colors duration-300`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-lg">
             Skip to main content
           </a>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
           <Navigation />
-          <div id="main-content" className="flex-grow flex flex-col relative pt-20">
+          <div id="main-content" className="flex-grow flex flex-col relative pt-[120px]">
             {children}
           </div>
           <Footer />
